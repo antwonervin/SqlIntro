@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace SqlIntro
 {
@@ -6,17 +7,19 @@ namespace SqlIntro
     {
         static void Main(string[] args)
         {
-            var connectionString = ""; //get connectionString format from connectionstrings.com and change to match your database
-            var repo = new ProductRepository(connectionString);
-            foreach (var prod in repo.GetProducts())
+            //var test = new DapperProductRepository();
+            var connectionString = "Server=localHost;Database=adventureworks;Uid=aervin;Pwd=myPassword;"; //get connectionString format from connectionstrings.com and change to match your database
+            using (var conn = new MySqlConnection(connectionString))
             {
-                Console.WriteLine("Product Name:" + prod.Name);
+                var repo = new DapperProductRepository(conn);
+                foreach (var prod in repo.GetProducts())
+                {
+                    Console.WriteLine("Product Name:" + prod.Name);
+                }
+
+                Console.ReadLine();
+         
             }
-
-           
-            Console.ReadLine();
         }
-
-       
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SqlIntro
+﻿using System;
+
+namespace SqlIntro
 {
     public class Product
     {
@@ -6,7 +8,6 @@
         public string Name { get; set; }
         public int ProductId { get; set; }
         public Guid RowGuid { get; set; }
-        public string Name { get; set; }
         public string ProductNumber { get; set; }
         public double ListPrice { get; set; }
         public bool MakeFlag { get; set; }

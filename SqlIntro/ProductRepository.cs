@@ -60,8 +60,8 @@ namespace SqlIntro
             {
                 var cmd = conn.CreateCommand();
                 cmd.CommandText = "update product set name = @testupdate where id = @id";
-                cmd.Parameters.AddWithValue("@name", prod.Name);
-                cmd.Parameters.AddWithValue("@id", prod.Id);
+                cmd.Parameters.AddWithValue("Tom", prod.Name);
+                cmd.Parameters.AddWithValue("25", prod.Id);
                 cmd.ExecuteNonQuery();
             }
         }               
